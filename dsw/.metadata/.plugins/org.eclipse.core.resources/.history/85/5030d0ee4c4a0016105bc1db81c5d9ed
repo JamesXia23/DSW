@@ -1,0 +1,10 @@
+package org.bdi.dsw.test;
+
+import org.bdi.dsw.utils.DBUtil;
+
+public class Test {
+	public static void main(String[] args){
+		String sql = "select MEAN10,MEAN25,UPPER_BOUND,LOWER_BOUND from MA_DEMO where TO_CHAR(TEST_TIME,'YYYYMMDD')='20150115' and VENDOR='Ezzconn' and CM_NAME='º£ÐÅ' and BOM='1050AGE'";		
+		System.out.println(DBUtil.query(sql, DBUtil.ORACLE));
+	}
+}

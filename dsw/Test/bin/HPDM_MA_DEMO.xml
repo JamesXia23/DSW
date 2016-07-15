@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+<table name="HPDM">
+<colum>TEST_TIME</colum>
+<colum>VENDOR</colum>
+<colum>CM_NAME</colum>
+<colum>BOM</colum>
+<colum>MEAN10</colum>
+<colum>MEAN25</colum>
+<colum>UPPER_BOUND</colum>
+<colum>LOWER_BOUND</colum>
+<colum>STD</colum>
+<colum>ID</colum>
+</table></database>

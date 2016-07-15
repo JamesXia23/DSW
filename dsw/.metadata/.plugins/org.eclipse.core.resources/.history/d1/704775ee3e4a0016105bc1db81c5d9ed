@@ -1,0 +1,74 @@
+package org.bdi.dsw.utils;
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.io.*;
+import java.util.List;
+import java.io.*;
+import org.jaxen.*;
+public class ReadXml {
+	private Document document ;
+	private String filename;
+	public ReadXml(){
+		document=null;
+		filename=null;
+	}
+	public ReadXml(String Path){
+		try{
+			filename=Path;
+			SAXReader reader=new SAXReader();			
+			document = reader.read(new File(Path));
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			throw new RuntimeException("∂¡»°XML¥ÌŒÛ");
+		}
+	}
+	public boolean init(String Path){
+		try{
+			filename=Path;
+			SAXReader reader=new SAXReader();			
+			document = reader.read(new File(Path));
+		}
+		catch(Exception e){
+			return false;
+		}
+		if(!document.hasContent())
+			return false;
+		return true;
+		
+	}
+	public String getDatabase(String qid){
+		if(!document.hasContent())
+     		return null;
+		String Path="//QID"+qid;
+		List<Element> e=document.selectNodes(Path);
+		if(e.isEmpty())
+			return null;
+		else{
+			if(e.size()>1)
+				return "-1";
+			else
+				return e.get(0).getText();
+		}
+	     
+	}
+	public String getDatabase(int qid){
+		
+		if(!document.hasContent())
+     		return null;
+		String s=Integer.toString(qid);
+		String Path="//QID"+s;
+		List<Element> e=document.selectNodes(Path);
+		if(e.isEmpty())
+			return null;
+		else{
+			if(e.size()>1)
+				return "-1";
+			else
+				return e.get(0).getText();
+		}
+	     
+	}
+
+	
+}

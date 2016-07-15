@@ -1,0 +1,27 @@
+package org.bdi.dsw.utils;
+
+import java.io.FileNotFoundException;
+import java.sql.SQLException;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+
+import org.json.JSONException;
+
+
+@Path("APPID/")
+public class DSWUtil {
+	
+	@GET
+	@Path("QID1")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String QID1(
+			@QueryParam ("TEST_TIME") String time,
+			@QueryParam ("VENDOR") String vendor,
+			@QueryParam ("CM_NAME") String cm_name,
+			@QueryParam ("BOM") String bom
+			) throws JSONException, FileNotFoundException, ClassNotFoundException, SQLException{
+		String sql = "select MEAN10,MEAN25,UPPER_BOUND,LOWER_BOUND from MA_DEMO where TO_CHAR(TEST_TIME,'YYYYMMDD')='"+time+"' and VENDOR='"+vendor+"' and CM_NAME='"+cm_name+"' and BOM='"+bom+"'";
+		return DBUtil.query(sql, 1);
+	}
+}

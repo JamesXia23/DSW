@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+	<QID1>Mysql</QID1>
+	<QID2>Oracle</QID2>
+	<QID3>Impala</QID3>
+	<QID4>Postgresql</QID4>
+	<QID5>Mysql</QID5>
+	<QID6>Mysql</QID6>
+	<QID7>Mysql</QID7>
+	<QID8>Oracle</QID8>
+	<QID9>Oracle</QID9>
+	<QID10>Impale</QID10>
+</mapping>

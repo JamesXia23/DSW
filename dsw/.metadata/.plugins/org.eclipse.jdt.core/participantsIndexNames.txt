@@ -1,0 +1,3 @@
+INDEX VERSION 1.127
+C:\Users\ʯ�ľ�\Desktop\ʵϰ\day07\dsw\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3819415250.index
+\dsw\src

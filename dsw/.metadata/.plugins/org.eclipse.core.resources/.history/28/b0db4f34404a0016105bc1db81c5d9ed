@@ -1,0 +1,57 @@
+package org.bdi.dsw.utils;
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.io.*;
+
+import java.util.List;
+import java.io.*;
+
+import org.jaxen.*;
+public class XmlUtil {
+	private Document document;
+	private String filename;
+	
+	public static String getDatabaseByQID(String qID){
+		Document xmlDoc = parserXml();
+		if(!xmlDoc.hasContent())
+     		return null;
+		
+		String Path = "//QID" + qID;
+		List<Element> e = xmlDoc.selectNodes(Path);
+		if(e.isEmpty())
+			return null;
+		else{
+			if(e.size()>1)
+				return "-1";
+			else
+				return e.get(0).getText().toLowerCase();
+		}
+	}
+	public static String getDatabaseByQID(int qID){
+		Document xmlDoc = parserXml();
+		if(!xmlDoc.hasContent())
+     		return null;
+		
+		String Path = "//QID" + qID;
+		List<Element> e = xmlDoc.selectNodes(Path);
+		if(e.isEmpty())
+			return null;
+		else{
+			if(e.size()>1)
+				return "-1";
+			else
+				return e.get(0).getText().toLowerCase();
+		}
+	}
+	public static Document parserXml(){
+		String xmlPath = "conf/xml/HPDM_MA_DEMO.xml";
+		try{
+			SAXReader reader = new SAXReader();			
+			return reader.read(new File(xmlPath));
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			throw new RuntimeException("∂¡»°XML¥ÌŒÛ");
+		}
+	}
+}

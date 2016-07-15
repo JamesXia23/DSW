@@ -1,0 +1,1 @@
+{"driver":"org.apache.hive.jdbc.HiveDriver","url":"jdbc:hive2://172.31.238.150:21050/;auth=noSasl","username":"","password":""}
